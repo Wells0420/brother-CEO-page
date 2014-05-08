@@ -1,0 +1,591 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>brother</title>
+<link href="css/base.css" rel="stylesheet" />
+<link href="css/style.css" rel="stylesheet" />
+<link href="css/jquery.jscrollpane.css" rel="stylesheet" />
+<script>
+/*(function(){
+	var UA = navigator.userAgent.toLowerCase();
+	
+	var isWebKit = !! UA.match(/AppleWebKit/i),
+		isIE = !!UA.match(/msie/i),
+		isFirefox = !!UA.match(/firefox/i),
+		isChrome = !! UA.match(/chrome/i),
+		isSafari = !! UA.match(/safari/i),
+		isOpera = !! UA.match(/opera/i),
+		isiPad = isWebKit && UA.match(/ipad/i),
+    	isMobile = isWebKit && (UA.match(/Mobile/i) && !isiPad),
+		version = (UA.match( /.(?:rv|it|ra|ie)[\/: ]([\d.]+)/ ) || [0, '0'])[1];
+alert(version)
+	if(isChrome || isFirefox || isSafari || isOpera || (isIE && version > 8)){
+		window.location.href = "/pc";	
+	}
+	else if(isMobile){
+		window.location.href = "/mobile";		
+	}
+	else{
+		//window.location.href = "/ie";	
+	}  
+})()*/
+
+</script>
+<script type="text/javascript" src="js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="js/scrollHelp.js"></script>
+</head>
+
+<body id="win" data-experience="brother">
+
+<div id="preloader" style="display: block; ">
+	<div class="pre-box">
+	<img src="images/loader.gif" width="66" height="66" alt="loading...." class="loader" />
+    <div class="counter"></div>
+	</div>
+    <script type="text/javascript">
+        <!--
+        var k_preloader = new function(){
+            var that = this;
+            var items = new Array(),
+                    doneStatus = 0,
+                    doneNow = 0,
+                    selectorPreload =  "body",
+                    ieLoadFixTime = 2000,
+                    ieTimeout =  "";
+			var $counter = $("#preloader .counter");
+            var $preloader = $("#preloader").css("display", "block");
+			
+            function getImages(selector) {
+                var everything = $(selector).find("*:not(script)").each(function() {
+                    var url = "";
+
+                    if ($(this).css("background-image") != "none") {
+                        var url = $(this).css("background-image");
+                    } else if (typeof($(this).attr("src")) != "undefined" && $(this)[0].tagName.toLowerCase() == "img") {
+                        var url = $(this).attr("src");
+                    }
+
+                    var all_urls = url.split(", ");
+                    for(var i=0; i<all_urls.length; i++){
+                        var m_url = all_urls[i];
+                        m_url = m_url.replace("url(\"", "");
+                        m_url = m_url.replace("url(", "");
+                        m_url = m_url.replace("\")", "");
+                        m_url = m_url.replace(")", "");
+                        if (m_url.length > 0) {
+                            items.push(m_url);
+                        }
+                    }
+                });
+            };
+            function createPreloading() {
+
+                var length = items.length;
+                doneStatus = length;
+
+                for (var i = 0; i < length; i++) {
+                    var imgLoad = $('<img></img>');
+                    $(imgLoad).attr("src", items[i]);
+                    $(imgLoad).unbind("load");
+                    $(imgLoad).bind("load", function() {
+                        imgCallback(false);
+                    }).bind("error", function(){
+                        imgCallback(true);
+                    });
+                }
+            };
+            function imgCallback(error) {
+                doneNow++;
+                animateLoader();
+            };
+            function animateLoader(){
+                var perc = (100 / doneStatus) * doneNow;
+                if (perc > 99) {
+                    that.killMe();
+					$('html').css('overflow-y','auto');
+                }
+                perc = Math.min(99, perc);
+				perc = 'Loading  ' + Math.floor(perc) + '%';
+                $counter.html(perc);
+
+            };
+            function ieLoadFix() {
+                if ($.browser.msie) {
+                    while ((100 / doneStatus) * doneNow < 100) {
+                        imgCallback();
+                    }
+                }
+            }
+
+
+            //public fn
+            this.killMe = function(){
+                $preloader.fadeOut(1000,function(){$(this).remove();})
+            }
+            this.hideMe = function(){
+                var that = this;
+                $preloader.css("background-color", "transparent");
+            }
+            this.init = function(){
+                var that = this;
+                if (navigator.userAgent.match(/MSIE (\d+(?:\.\d+)+(?:b\d*)?)/) == "MSIE 6.0,6.0") {
+                    //break if IE6
+                    that.hideMe();
+                    return false;
+                }
+                getImages(selectorPreload);
+                createPreloading();
+                ieTimeout = setTimeout(ieLoadFix, ieLoadFixTime);
+            }
+        };
+        // -->
+		$(function(){
+			$('html').css('overflow-y','hidden');
+			k_preloader.init();
+		})
+		
+    </script>
+    
+</div>
+<!-- /preloader -->
+
+<!-- #main-container -->
+<div id="main-container">
+  <div id="main" class="wrapper" data-script="Slides">
+  	<div id="side-nav" data-script="SlidesNav">
+    	<ul>
+        	<li id="slide-nav-1"><a href="/brother/?video" data-videoid="myvideo"></a></li>
+            <li id="slide-nav-2"><a href="/brother/?ceo-life-1"></a></li>
+            <li id="slide-nav-3"><a href="/brother/?ceo-life-2"></a></li>
+            <li id="slide-nav-4"><a href="/brother/?about-brother"></a></li>
+            <li id="slide-nav-5"><a href="/brother/?rule"></a></li>
+        </ul>
+    </div>
+    <!-- /#slide-nav -->
+    
+    <div id="intro" class="slide _inview" data-nav="Intro" data-id="Intro" data-height="760" data-route="/brother/?video" data-nav-index="0">
+    	<div class="header">
+        	<div class="bd">
+				<h1 class="logo"><a href="http://www.brother.cn/" target="_blank">brother</a></h1>
+	    		<h2 class="act-logo"><img src="images/site_slogan.png" width="113" height="41" alt="" /></h2>
+    		</div>
+        </div>
+    	<div class="content" style="height:700px;">
+        	<div class="grid"></div>
+            <div class="slogan" data-videoid="myvideo">
+        		<a href="#" class="btn-play" title="马上播放"></a>
+          	</div>
+        </div>
+        <script>
+        	$(".slogan").hover(function(){
+				$(this).css("cursor","pointer").find(".btn-play").addClass("on");
+			},
+			function(){
+				$(this).css("cursor","default").find(".btn-play").removeClass("on");
+			});
+        </script>
+	  	<div class="instructions"><img src="images/icon_scroll_down_blue.png" alt="scoll down" /></div>
+	</div>
+	<!-- /#intro -->
+    
+    <div id="story" class="slide" data-id="Intro" data-route="/pc1/?video" data-nav-index="0"> 	
+    	<div class="content" style="height:700px;">
+        	<div id="ceo-pic" style="width:273px;" class="hidden"><img src="images/ceo.png" /></div>
+    		<div id="ceo-words" style="width:496px;" class="hidden"><img src="images/ceo_txt.png" /></div>
+    		<div id="btn-join-1" class="btn-join scale-0 change"></div>
+        </div>
+	</div>
+	<!-- /#story -->
+    
+    <div id="goodlife" class="slide" data-id="Goodlife" data-route="/brother/?ceo-life-1" data-nav-index="1"> 
+    	<div class="content" style="height:1902px;">
+			<div id="time0" class="bg-move"></div>
+            <div id="time2"><img src="images/gl_txt1.png" /></div>
+		  	<div id="wine-glass" class="bg-move"></div>	
+		    <div id="wine" class="bg-move"></div>	
+    		<div id="food1" class="scale-0"><img src="images/pci_dish.png" /></div>
+            <div id="car"><img src="images/pic_car.png" /></div>
+        	<div id="person2"><img src="images/pic_ceo_words.png" id="person2-words" class="scale-0" /><img src="images/pic_people_02.png" /></div>
+            <div id="move-bg"></div>
+            <div id="time1" class="scale-0"></div>
+	        <div id="notebook" class="bg-move"></div>
+	        <div id="gita" class="bg-move"></div>
+	        <div id="food2" class="scale-0"><img src="images/pci_food.png" /></div>
+	        <div id="txt1"><img src="images/txt_07.png" /></div>
+            <div id="txt13"><img src="images/txt13.png" /></div>
+	        <div id="btn-join-2" class="btn-join scale-0 change"></div>
+        	
+        </div>
+	</div>
+	<!-- /#goodlife -->
+    
+    <div id="badlife" class="slide" data-id="Badlife" data-route="/brother/?ceo-life-2" data-nav-index="2"> 
+    	<div class="content" style="height:1758px;">
+  			<div id="lifemask"></div>
+            <div id="time5" class="bg-move"></div>
+            <div id="person3"><img src="images/pic_people_03.png" id="person3-pic" /><img src="images/txt_08.png" id="person3-word" class="scale-0" /></div>
+        	<div id="vegetable"><img src="images/pic_vegtable0.png" /></div>
+            <div id="move-bg1"></div>
+            <div id="person12"><img src="images/pic_people_04.png" /><img src="images/pic_person_words.png" id="person12-wd" class="scale-0" /></div>
+        	<div id="person13"><img src="images/pic_people_10.png" /><img src="images/txt_09.png" id="person13-wd" class="scale-0" /></div>
+            <div id="pic-bg1" class="bg-move"></div>
+            <div id="pic-bg2" class="bg-move"></div>
+            <div id="pic-bg3" class="bg-move"></div>
+            <div id="dish"><img src="images/dish.png" /></div>
+            <div id="txt2"><img src="images/txt_10.png" /></div>
+            <div id="btn-join-8" class="btn-join scale-0 change"></div>
+        </div>
+	</div>
+	<!-- /#badlife -->
+    
+    <div id="rules" class="slide" data-id="Think" data-route="/brother/?about-brother" data-nav-index="3"> 
+    	<div class="content" style="height:1150px;">
+        	<div class="fixed-con">
+				<div id="txt-content1"><a href="http://www.brother.cn/" target="_blank" class="more"></a></div>
+		        <div id="person6"><img src="images/pic_people_06.png" /><img src="images/txt_11.png" id="person6-wd" class="scale-0" /></div>
+		        <div id="person7"><img src="images/pic_people_05.png" /><img src="images/txt_15.png" id="person7-wd" class="scale-0"  /></div>
+		        <div id="printer"><img src="images/pic_printer.png" /></div>
+		        <div id="btn-join-3" class="btn-join scale-0 change"></div>
+            </div>
+        </div>
+	</div>
+	<!-- /#rules -->
+    
+    <div id="rules-1" class="slide" data-id="Rules" data-route="/brother/?rule" data-nav-index="4"> 
+    	<div class="content" style="height:1207px;">
+        	<div class="fixed-con">
+				<div id="txt-content2"><img src="images/bg_content_panel2.png" /></div>
+		        <div id="person8"><img src="images/pic_people_07.png" /></div>
+		        <div id="person9"><img src="images/pic_people_08.png" /></div>
+		        <div id="refresh" class="rotate-0"><img src="images/icon_reflash.png" /></div>
+		        <div id="fivem" class="scale-0"><img src="images/pic_five_million.png" /></div>
+                <div id="fivemt" class="scale-0"><img src="images/pic_five_million_txt.png" /></div>
+		        <div id="btn-join-4" class="btn-join scale-0 change"></div>
+            </div>
+        </div>
+	</div>
+	<!-- /#rules -->
+    
+    <div id="rules-2" class="slide" data-id="Rules" data-route="/brother/?rule" data-nav-index="4"> 
+    	<div class="content" style="height:907px;">
+        	<div class="fixed-con">
+				<div id="txt-content3"></div>
+		        <div id="person10"><img src="images/pic_people_09.png" /><img src="images/txt_13.png" id="person10-wd" class="scale-0" /></div>
+		        <div id="btn-join-5" class="btn-join scale-0 change"></div>
+            </div>
+        </div>
+	</div>
+	<!-- /#rules -->
+    
+    <div id="rules-3" class="slide" data-id="Rules" data-route="/brother/?rule" data-nav-index="4"> 
+    	<div class="content" style="height:517px;">
+        	<div class="fixed-con">
+				<div id="txt-content4"><img src="images/txt_14.png" /></div>
+                <div id="earth" class="scale-0"><img src="images/earth.png" /></div>
+		        <div id="share">
+		        	<ul>
+		            	<li id="sina-share" class="scale-0"><a href="#"></a></li>
+		                <li id="qq-share" class="scale-0"><a href="#"></a></li>
+		                <li id="qzone-share" class="scale-0"><a href="#"></a></li>
+		                <li id="renren-share" class="scale-0"><a href="#"></a></li>
+		            </ul>
+		        </div>
+            </div>
+            <div class="footer">
+        		<div>
+            		<p style="float:left;padding-left:20px;"><img src="images/ft1.png" border="0" usemap="#Map" />
+                      <map name="Map">
+                        <area shape="rect" coords="8,3,149,22" href="http://e.weibo.com/u/2232839382?ref=http%3A%2F%2Fweibo.com%2F1798065030%2Ffollow%3Fleftnav%3D1%26wvr%3D4" target="_blank">
+                        <area shape="rect" coords="164,4,322,20" href="http://www.brother.cn/" target="_blank">
+                        <area shape="rect" coords="335,4,436,22" href="rules.html" target="_blank">
+                      </map>
+            		</p>
+            		<p style="float:right;padding-right:20px;"><img src="images/ft2.png" border="0" usemap="#Map2" />
+                      <map name="Map2">
+                        <area shape="rect" coords="9,7,126,19" href="http://www.miibeian.gov.cn" target="_blank">
+                      </map>
+            		</p>
+        		</div>
+    		</div>
+            <!-- /.footer-->
+        </div>
+        
+	</div>
+	<!-- /#rules -->
+    
+    
+  </div>
+</div>
+<!-- /#main-container -->
+
+<!-- #video-wrapper -->
+<div id="video-wrapper" data-script="videoPlayer">
+    <div class="darkslide" style="height: 0px; opacity: 0; "></div>
+    <div id="video-container"></div>
+    <div id="image-container"></div>
+    <a href="#/close_video" id="close-video" title="关闭">关闭</a>
+</div>
+<!-- /#video-wrapper -->
+
+<div id="join-tips"><img src="images/join_tips.png" width="109" height="39" alt="马上参加" /></div>
+
+<script type="text/javascript" src="js/jquery.artDialog.js"></script>
+<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="js/jquery.scrollTo-1.4.2-min.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="js/class.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<script src="js/history.js"></script> 
+<script src="js/history.html4.js"></script> 
+<script src="js/history.adapter.jquery.js"></script> 
+<script src="js/HistoryManager.js"></script>
+
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            //特效scroll
+            $('.selector-area ul').jScrollPane();
+            var next = $(".next");
+            var follow = $(".radio-wrapper");
+            var tips = $(".not-follow-tip");
+            var followed = follow.eq(0).find(".radio-filler");
+            var unfollowed = follow.eq(1).find(".radio-filler");
+            var selectorTitle = $(".selector-title");
+            var selectorArea = $(".selector-area");
+            var pops = $(".to-be-ceo");
+            var username = $(".username");
+            var usernameLabel = $(".username-label");
+            var friend = $(".friend-wrapper");
+            friend.find("img").click(function(){
+                var i = $(this).parent().index();
+                friend.eq(i).find(".checked").toggle();
+            })
+            follow.eq(0).click(function () {
+                if (followed.css("display") == "none") {
+                    followed.css("display", "inline");
+                    unfollowed.css("display", "none");
+                    tips.css("display", "none");
+                }
+            })
+            follow.eq(1).click(function () {
+                if (unfollowed.css("display") == "none") {
+                    followed.css("display", "none");
+                    unfollowed.css("display", "inline");
+                    tips.css("display", "block");
+                }
+            })
+
+            selectorArea.find("ul li a").hover(function () {
+                $(this).css("background-color", "#ffa21f");
+            })
+            selectorArea.find("ul li a").mouseout(function () {
+                $(this).css("background-color", "#114a9a");
+            })
+
+            selectorArea.css("display", "none");
+            selectorTitle.click(function () {
+                selectorArea.css("display", "block");
+            })
+            selectorArea.find("ul li a").click(function () {
+                selectorTitle.find("span").text($(this).text());
+                selectorArea.css("display", "none");
+            })
+
+            username.focus(function () {
+                usernameLabel.hide();
+            })
+            username.blur(function () {
+                if ($(this).val() == "") {
+                    usernameLabel.show();
+                }
+            })
+
+            //dialog
+            $("#videoBtn,#page1").click(function () {
+                var dialog = art.dialog({
+                    title: "",
+                    resize: false,
+                    lock: true,
+                    padding: 0,
+                    content: document.getElementById('pop')
+                });
+                $(".form_close").click(function () {
+                    dialog.close();
+                });
+                return false;
+            })
+            var dialog;
+            $(".change").click(function () {
+                pops.eq(0).css("display", "block");
+                dialog = art.dialog({
+                    title: "",
+                    resize: false,
+                    lock: true,
+                    padding: 0,
+                    content: document.getElementById('to-be-ceo-wrapper')
+                });
+                $(".close").click(function () {
+                    dialog.close();
+                    pops.css("display", "none");
+                })
+            })
+
+            next.eq(0).click(function () {
+                if (followed.css("display") != "none") {
+                    pops.eq(0).css("display", "none");
+                    pops.eq(1).css("display", "block");
+                } else {
+                    tips.css("display", "block");
+                }
+            })
+            next.eq(1).click(function () {
+                if (selectorTitle.text() != "请选择您现在工作的地方" || $("#place").val()) {
+                    pops.eq(1).css("display", "none");
+                    pops.eq(2).css("display", "block");
+                }
+            })
+            next.eq(2).click(function () {
+                if (username.val() != "") {
+                    pops.eq(2).css("display", "none");
+                    pops.eq(3).css("display", "block");
+                    $(".username-show").text(username.val());
+                }
+            })
+            next.eq(3).click(function () {
+                pops.eq(3).css("display", "none");
+                pops.eq(4).css("display", "block");
+            })
+            next.eq(4).click(function(){
+                pops.eq(4).css("display", "none");
+                dialog.close();
+            })
+            $('.to-be-ceo-wrapper').hide().removeClass('to-be-ceo-fix');
+            pops.css("display", "none");
+        })
+        //nav按钮scrollTo方法
+        function pageGoto(section) {
+            $("." + section).stop().ScrollTo(500);
+        }
+    </script>
+    
+<div id="to-be-ceo-wrapper" class="to-be-ceo-wrapper to-be-ceo-fix">
+    <div class="to-be-ceo" style="background: url('css/images/step1-bg.jpg')">
+        <a class="close"></a>
+        <div class="follow">
+            <div class="radio-wrapper">
+                <div class="radio-filler"></div>
+            </div>
+
+            <div class="radio-wrapper" style="margin-left: 65px;">
+                <div class="radio-filler"></div>
+            </div>
+
+        </div>
+
+        <p class="not-follow-tip">加入[CEO换位风云]活动，
+            <br />需要关注兄弟（中国）商业有限公司的官方微博。</p>
+        <a class="next"></a>
+    </div>
+    <div class="to-be-ceo" style="background: url('css/images/step2-bg.jpg') no-repeat;">
+        <a class="close"></a>
+        <a class="selector-title"><span>请选择您现在工作的地方</span></a>
+        <div class="selector-area">
+            <ul>
+                <li style="color:#fff;padding-left: 25px;background-color: #5890dd;height: 25px;width:160px;line-height: 25px;">黄浦区</li>
+                <li>
+                    <a>徐家汇港丽茶餐厅1</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅2</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅3</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅4</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅5</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅6</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅7</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅8</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅9</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅0</a>
+                </li>
+                <li style="color:#fff;padding-left: 25px;background-color: #5890dd;height: 25px;width:160px;line-height: 25px;">黄浦区</li>
+                <li>
+                    <a>徐家汇港丽茶餐厅123</a>
+                </li>
+                <li>
+                    <a>徐家汇港丽茶餐厅</a>
+                </li>
+            </ul>
+
+            <div class="other">
+                <p>其他（请自行填写）</p>
+                <input id="place" type="text" />
+            </div>
+        </div>
+        <p class="notice">请先阅读并同意
+            <a href="#" style="text-decoration: none;color:#004a99">网站用户协议</a>后，
+            <br/>参加［CEO换位风云］活动。</p>
+        <a class="next"></a>
+    </div>
+    <div class="to-be-ceo" style="background: url('css/images/step3-bg.jpg') no-repeat;">
+        <a class="close"></a>
+        <div class="form">
+            <form action="#">
+                <label class="username-label" for="username">您的 姓名</label>
+                <input id="username" type="text" class="username" maxlength="7" size="7"/>
+            </form>
+        </div>
+        <textarea rows="4" cols="30" class="textarea"></textarea>
+        <a class="next" style="background: url('css/images/next.jpg') no-repeat"></a>
+    </div>
+    <div class="to-be-ceo" style="background: url('css/images/step5-bg.jpg') no-repeat;">
+        <a class="close"></a>
+        <p class="username-show"></p>
+        <div class="friends-wrapper">
+            <div class="friend-wrapper">
+                <div class="checked"></div>
+                <img src="userAvatar/friend1.jpg" alt=""/>
+                <span>张三</span>
+            </div>
+            <div class="friend-wrapper">
+                <div class="checked"></div>
+                <img src="userAvatar/friend2.jpg" alt=""/>
+                <span>张三</span>
+            </div>
+            <div class="friend-wrapper">
+                <div class="checked"></div>
+                <img src="userAvatar/friend3.jpg" alt=""/>
+                <span>张三丰</span>
+            </div>
+            <a class="change-friends"></a>
+        </div>
+        <a class="next"></a>
+    </div>
+    <div class="to-be-ceo" style="background: url('css/images/step4-bg.jpg') no-repeat;">
+        <a class="close"></a>
+        <p class="username-show"></p>
+        <a class="next" style="background: url('css/images/next4.jpg') no-repeat"></a>
+    </div>
+</div>    
+    
+    
+</body>
+</html>
