@@ -52,10 +52,13 @@ function Video($section){
 	this.$ceoPic = $("#ceo-pic");
 	this.$ceoWords = $("#ceo-words");
 	this.$joinBtn = $("#btn-join-1");
-	
 }
+
+
 Video.prototype = new BaseClass(inheriting);
+
 Video.prototype.align = function(move_ratio, move_position){
+
 	var topPos = move_position-windowHeight;
 	
 	this.$ceoPic.css("marginTop", 150*move_ratio);
